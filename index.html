@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Async Weather Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <span class="logo-mark">◈</span>
+      <span class="logo-text">Async Weather Tracker</span>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">☾</button>
+  </header>
+
+  <main class="main">
+
+    <section class="hero">
+      <p class="hero-eyebrow">Live Weather Intelligence</p>
+      <h1 class="hero-title">What's the sky<br><em>doing today?</em></h1>
+    </section>
+
+    <div>
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input
+          type="text" id="cityInput" class="search-input"
+          placeholder="Enter a city name…"
+          autocomplete="off" spellcheck="false"
+        />
+        <button class="search-btn" id="searchBtn">
+          <span>Search</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+      <p class="search-hint" id="searchHint"></p>
+    </div>
+
+    <!-- Weather Card -->
+    <div class="weather-card hidden" id="weatherCard">
+      <div class="card-top">
+        <div>
+          <span class="card-city" id="cardCity">—</span>
+          <span class="card-country" id="cardCountry"></span>
+        </div>
+        <div class="card-date" id="cardDate"></div>
+      </div>
+
+      <div class="card-mid">
+        <div>
+          <span class="card-temp" id="cardTemp">—</span>
+          <div class="card-unit-toggle">
+            <button class="unit-btn active" id="celsiusBtn">°C</button>
+            <button class="unit-btn" id="fahrenheitBtn">°F</button>
+          </div>
+        </div>
+        <div class="card-icon-wrap">
+          <div class="weather-icon" id="weatherIcon">🌡️</div>
+          <p class="card-desc" id="cardDesc">—</p>
+        </div>
+      </div>
+
+      <div class="card-divider"></div>
+
+      <div class="card-stats">
+        <div class="stat"><span class="stat-label">Feels Like</span><span class="stat-value" id="feelsLike">—</span></div>
+        <div class="stat"><span class="stat-label">Humidity</span><span class="stat-value" id="humidity">—</span></div>
+        <div class="stat"><span class="stat-label">Wind</span><span class="stat-value" id="wind">—</span></div>
+        <div class="stat"><span class="stat-label">Visibility</span><span class="stat-value" id="visibility">—</span></div>
+        <div class="stat"><span class="stat-label">Pressure</span><span class="stat-value" id="pressure">—</span></div>
+        <div class="stat"><span class="stat-label">Cloud Cover</span><span class="stat-value" id="clouds">—</span></div>
+      </div>
+
+      <div class="card-footer">
+        <span class="card-update" id="cardUpdate"></span>
+        <button class="refresh-btn" id="refreshBtn">↻ Refresh</button>
+      </div>
+    </div>
+
+    <!-- Skeleton Loader -->
+    <div class="skeleton-card hidden" id="skeletonCard">
+      <div class="sk sk-title"></div>
+      <div class="sk sk-sub"></div>
+      <div class="sk sk-big"></div>
+      <div class="sk sk-row">
+        <div class="sk sk-pill"></div>
+        <div class="sk sk-pill"></div>
+        <div class="sk sk-pill"></div>
+      </div>
+    </div>
+
+    <!-- Error Card -->
+    <div class="error-card hidden" id="errorCard">
+      <span class="error-icon">⚠️</span>
+      <p class="error-msg" id="errorMsg">City not found.</p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <span class="footer-dot">·</span>
+  </footer>
+
+  <script src="javascript.js"></script>
+</body>
+</html>
